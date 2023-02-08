@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+
+        <title>My Plant App</title>
+
+        <link rel="stylesheet" href="myplantsstyle.css">
+    </head>
+    <body>
+        <div class = "plant_index"">
+            <div class = "plant_list"> 
+                <h1>my plants</h1>
+                <input type="button" name="answer" class = "button1" value="plant 1" onclick="showDiv()" />
+                <input type="button" name="answer" class = "button1" value="plant 2" onclick="showDiv()" />
+                <input type="button" name="answer" class = "button1" value="plant 3" onclick="showDiv()" />
+                <input type="button" name="answer" class = "button1" value="add plant" onclick="showDiv()" />
+            </div>
+            <div id = plant_data style="display:none;" class = "plant_data"> 
+                <h1>plant data</h1>
+                
+                <div class = "file_upload">
+                    <p><input type="file"  name="plant1" id="plant1"  onchange="loadFile(event)"" style = "display: none;""></p>
+                    <p><label for="plant1" class = "upload">Upload Image</label></p>
+                    <p><img id="output" class = "img" width="200" /></p>
+
+                    <script>
+                    var loadFile = function(event) {
+                        var image = document.getElementById('output');
+                        image.src = URL.createObjectURL(event.target.files[0]);
+                    };
+                    </script>
+
+                </div>
+
+                <div class = "data">
+                    <h2>color: </h2>
+                    <h2>health assessment: </h2>
+                    <h2>water? </h2>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+        function showDiv() {
+            document.getElementById('plant_data').style.display = "block";
+         }
+        </script>
+    </body>
+</html>

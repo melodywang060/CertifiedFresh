@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+
+        <title>My Plant App</title>
+
+        <link rel="stylesheet" href="myplantsstyle.css">
+
+    </head>
+    <script>
+        function shipping_calc() {
+            var maint = document.getElementById("maintenance").value;
+            var in_out = document.getElementById("in_out").value;
+            if (maint === "high" && in_out == "indoors") {
+                document.getElementById("output").innerHTML = "Florist Azalea";
+            }
+            else if (maint == "high" && in_out == "outdoors") {
+                document.getElementById("output").innerHTML = "Mexican Petunias";
+            }
+            else if (maint == "low" && in_out == "indoors") {
+                document.getElementById("output").innerHTML = "Snake Plant";
+            }
+            else if (maint == "low" && in_out == "outdoors") {
+                document.getElementById("output").innerHTML = "Hardy Hibiscus";
+            }
+            else {
+                document.getElementById("output").innerHTML = "no plants for you :D";
+            }
+        }
+
+        function displayRecs() {
+            let rec = document.getElementById('output').innerHTML;
+            document.getElementById("recs").innerHTML = rec;
+        }
+
+    </script>
+    <body>
+        
+        <div class =  "plant_list">
+            <h1>maintenance level</h1>
+            <select class = "select" name="maintenance" id="maintenance">
+                <option value="high">high</option>
+                <option value="low">low</option>
+            </select>
+            <h1>indoors or outdoors</h1>
+            <select class = "select" name="in_out" id="in_out">
+                <option value="indoors">indoors</option>
+                <option value="outdoors">outdoors</option>
+            </select>
+            <button class= "button" onclick = "displayRecs()">Show Results</button>
+        </div> 
+
+        <div class = "plant_data">
+            <h1>plant recommendations</h1>
+            <h1 id = "output"></h1> 
+            <h1 id = "recs">...</h1>   
+        </div>
+        
+    </body>
+</html>
